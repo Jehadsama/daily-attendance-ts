@@ -1,9 +1,8 @@
 const moment = require('moment');
 const schedule = require('node-schedule');
 
-const v2free = require('../remote/v2free');
-const juejin = require('../remote/juejin');
 const { cron } = require('../config').const;
+const { run } = require('./src/service/job');
 
 const healthcheck = async () => 'daily_attendance,schedule,ok';
 
@@ -30,11 +29,9 @@ const ticktock = (rule, handler) => {
 
 const running = async () => {
   [healthcheck].forEach((fn) => ticktock(cron.healthCheck, fn));
-  [v2free.checkIn, juejin.checkIn, juejin.dipLucky, juejin.drawLottery].forEach(
-    (fn) => ticktock(cron.job, fn)
-  );
+  [run].forEach((fn) => ticktock(cron.job, fn));
 };
 
-if (!module.parent) {
+if (require.main === module) {
   running();
 }

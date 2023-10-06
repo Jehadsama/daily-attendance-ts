@@ -1,6 +1,5 @@
 const _ = require('lodash');
 const Boom = require('@hapi/boom');
-const { readFile } = require('node:fs/promises');
 
 const axios = require('../libs/axios');
 const { juejin: API } = require('../config').remote;
@@ -23,9 +22,7 @@ const checkIn = async () => {
   const opt = {
     method: 'post',
     url: `${API.host}${API.checkIn}`,
-    headers: {
-      cookie: process.env.JUEJINCK || (await readFile('private/juejinCk')),
-    },
+    headers: API.headers,
   };
   const res = await axios(opt);
   return parseRes(res.data, res);
@@ -36,9 +33,7 @@ const getLuckyUserList = async () => {
   const opt = {
     method: 'post',
     url: `${API.host}${API.getLuckyUserList}`,
-    headers: {
-      cookie: process.env.JUEJINCK || (await readFile('private/juejinCk')),
-    },
+    headers: API.headers,
   };
   const res = await axios(opt);
   return parseRes(res.data, res);
@@ -49,9 +44,7 @@ const dipLucky = async () => {
   const opt = {
     method: 'post',
     url: `${API.host}${API.dipLucky}`,
-    headers: {
-      cookie: process.env.JUEJINCK || (await readFile('private/juejinCk')),
-    },
+    headers: API.headers,
   };
   const res = await axios(opt);
   return parseRes(res.data, res);
@@ -62,9 +55,7 @@ const getLotteryConfig = async () => {
   const opt = {
     method: 'get',
     url: `${API.host}${API.getLotteryConfig}`,
-    headers: {
-      cookie: process.env.JUEJINCK || (await readFile('private/juejinCk')),
-    },
+    headers: API.headers,
   };
   const res = await axios(opt);
   return parseRes(res.data, res);
@@ -72,6 +63,8 @@ const getLotteryConfig = async () => {
 
 // 抽奖
 const drawLottery = async () => {
+  await checkIn();
+
   const {
     data: { free_count: freeCount },
   } = await getLotteryConfig();
@@ -83,9 +76,7 @@ const drawLottery = async () => {
   const opt = {
     method: 'post',
     url: `${API.host}${API.drawLottery}`,
-    headers: {
-      cookie: process.env.JUEJINCK || (await readFile('private/juejinCk')),
-    },
+    headers: API.headers,
   };
   const res = await axios(opt);
   return parseRes(res.data, res);

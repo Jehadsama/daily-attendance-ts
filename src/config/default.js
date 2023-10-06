@@ -1,9 +1,17 @@
+const { readFileSync } = require('node:fs');
+
 exports.remote = {
   v2free: {
+    headers: {
+      cookie: process.env.V2FREECK || readFileSync('private/v2freeCk'),
+    },
     host: 'https://w1.v2free.top',
     checkIn: '/user/checkin',
   },
   juejin: {
+    headers: {
+      cookie: process.env.JUEJINCK || readFileSync('private/juejinCk'),
+    },
     host: 'https://api.juejin.cn',
     checkIn: '/growth_api/v1/check_in',
     getLotteryConfig: '/growth_api/v1/lottery_config/get',
@@ -14,8 +22,8 @@ exports.remote = {
   smtp: {
     host: 'smtp.qq.com',
     port: '587',
-    from: 'ayumijehad@qq.com',
-    password: '',
+    user: 'ayumijehad@qq.com',
+    password: process.env.SMTPPASSWORD || readFileSync('private/smtpPassword'),
   },
 };
 

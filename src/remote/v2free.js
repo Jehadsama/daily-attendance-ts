@@ -22,7 +22,9 @@ const checkIn = async () => {
   const opt = {
     method: 'post',
     url: `${API.host}${API.checkIn}`,
-    headers: { cookie: process.env.CK || (await readFile('cookies/v2freeCk')) },
+    headers: {
+      cookie: process.env.V2FREECK || (await readFile('private/v2freeCk')),
+    },
   };
   const res = await axios(opt);
   return parseRes(res.data, res);

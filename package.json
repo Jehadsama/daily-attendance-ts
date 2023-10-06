@@ -11,9 +11,13 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "@hapi/boom": "^10.0.1",
     "axios": "^1.5.1",
+    "config": "^3.3.9",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
-    "node-schedule": "^2.1.1"
+    "nanoid": "^3.3.6",
+    "node-schedule": "^2.1.1",
+    "pino": "^8.15.6"
   }
 }

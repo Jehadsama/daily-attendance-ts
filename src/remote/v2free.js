@@ -2,7 +2,7 @@ const _ = require('lodash');
 const Boom = require('@hapi/boom');
 const { readFile } = require('node:fs/promises');
 
-const axios = require('../lib/axios');
+const axios = require('../libs/axios');
 const { v2free: API } = require('../config').remote;
 
 const parseRes = (body, res) => {

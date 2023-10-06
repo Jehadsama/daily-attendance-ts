@@ -20,5 +20,8 @@ exports.remote = {
 };
 
 exports.const = {
-  cron: '*/1 * * * *',
+  cron: {
+    healthCheck: '*/1 * * * *',
+    jobs: '*/1 * * * *',
+  },
 };

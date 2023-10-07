@@ -37,7 +37,7 @@ const wrapper = (funcName) => {
         const result = await fn();
         return result;
       } catch (err) {
-        console.log(err);
+        return err;
       }
     },
   ];

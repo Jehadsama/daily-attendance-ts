@@ -26,11 +26,11 @@ DAILY_ENV=prod go run cmd/main.go cron
 
 ## remark
 
-1. go version
+1. \*Ck exists in the project root directory which has cookie string
 
-2. *Ck exists in the project root directory which has cookie string
+2. smtpPassword exists in the project root directory which has password of email
 
-3. smtpPassword exists in the project root directory which has password of email
+3. [go version for daily attendance](https://github.com/Jehadsama/daily-attendance)
 
 ## todo
 

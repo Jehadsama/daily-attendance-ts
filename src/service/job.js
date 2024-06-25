@@ -22,8 +22,8 @@ const sendEmail = async (payloads) => {
 };
 
 const funcsMap = {
-  'v2free.checkIn': v2free.checkIn,
-  'juejin.dipLucky': juejin.dipLucky,
+  // TODO: v2free增加机器人校验，后面再看看怎么处理...
+  // 'v2free.checkIn': v2free.checkIn,
   'juejin.drawLottery': juejin.drawLottery,
 };
 

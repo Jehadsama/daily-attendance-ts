@@ -5,7 +5,7 @@ exports.remote = {
     headers: {
       cookie: process.env.V2FREECK || readFileSync('private/v2freeCk'),
     },
-    host: 'https://w1.v2free.top',
+    host: 'https://w1.v2free.cc',
     checkIn: '/user/checkin',
   },
   juejin: {
@@ -17,7 +17,6 @@ exports.remote = {
     getLotteryConfig: '/growth_api/v1/lottery_config/get',
     drawLottery: '/growth_api/v1/lottery/draw',
     getLuckyUserList: '/growth_api/v1/lottery_history/global_big',
-    dipLucky: '/growth_api/v1/lottery_lucky/dip_lucky',
   },
   smtp: {
     host: 'smtp.qq.com',

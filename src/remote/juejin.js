@@ -39,16 +39,6 @@ const getLuckyUserList = async () => {
   return parseRes(res.data, res);
 };
 
-// 沾喜气
-const dipLucky = async () => {
-  const opt = {
-    method: 'post',
-    url: `${API.host}${API.dipLucky}`,
-    headers: API.headers,
-  };
-  const res = await axios(opt);
-  return parseRes(res.data, res);
-};
 
 //获取今日免费抽奖次数
 const getLotteryConfig = async () => {
@@ -85,7 +75,6 @@ const drawLottery = async () => {
 module.exports = {
   checkIn,
   getLuckyUserList,
-  dipLucky,
   getLotteryConfig,
   drawLottery,
 };

@@ -1,4 +1,4 @@
-FROM node:20.11.1 as npminstall
+FROM node:20.15-slim as npminstall
 LABEL maintainer="Jehadsama<339364351@qq.com>"
 ARG nodejs_org_mirror=http://registry.npm.taobao.org/mirrors/node
 ARG npm_config_registry=https://registry.npm.taobao.org
@@ -11,7 +11,7 @@ RUN npm install --production --verbose && ls node_modules/
 
 
 # for `npm` just rm prefix `base-` from tag
-FROM mhart/alpine-node:slim-20.11.1
+FROM node:20.15-slim
 WORKDIR /src-app
 COPY --from=npminstall /tmp/app/node_modules /src-app/node_modules
 

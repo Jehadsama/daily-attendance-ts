@@ -12,7 +12,8 @@ RUN npm install --production --verbose && ls node_modules/
 
 # for `npm` just rm prefix `base-` from tag
 FROM node:20.15-slim
+ENV NODE_ENV=prod
 WORKDIR /src-app
 COPY --from=npminstall /tmp/app/node_modules /src-app/node_modules
 
-ENTRYPOINT ["NODE_ENV=prod", "node", "./src/jobs/sch.js"]
+ENTRYPOINT ["node", "./src/jobs/sch.js"]

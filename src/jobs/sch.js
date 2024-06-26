@@ -2,7 +2,9 @@ const moment = require('moment');
 const schedule = require('node-schedule');
 
 const { cron } = require('../config').const;
-const { run } = require('../service/job');console.log(cron)
+const { run } = require('../service/job');
+
+console.log('ENV:', process.env.NODE_ENV || 'dev', cron);
 
 const healthcheck = async () => 'daily_attendance,schedule,ok';
 

@@ -15,4 +15,4 @@ FROM node:20.15-slim
 WORKDIR /src-app
 COPY --from=npminstall /tmp/app/node_modules /src-app/node_modules
 
-ENTRYPOINT ["node", "./src/jobs/sch.js"]
+ENTRYPOINT ["NODE_ENV=prod", "node", "./src/jobs/sch.js"]

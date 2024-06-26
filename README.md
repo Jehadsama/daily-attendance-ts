@@ -11,18 +11,17 @@ Automatic sign-in daily for multi platforms
 #### cmd
 
 test:
-go run cmd/main.go
+node ./app.js
 
 prod:
-DAILY_ENV=prod go run cmd/main.go
+NODE_ENV=prod node ./app.js
 
 #### cron
 
-test:
-go run cmd/main.go cron
+node ./src/jobs/sch.js
 
 prod:
-DAILY_ENV=prod go run cmd/main.go cron
+NODE_ENV=prod node ./src/jobs/sch.js
 
 ## remark
 
@@ -31,9 +30,3 @@ DAILY_ENV=prod go run cmd/main.go cron
 2. smtpPassword exists in the project root directory which has password of email
 
 3. [go version for daily attendance](https://github.com/Jehadsama/daily-attendance)
-
-## todo
-
-- [x] mail
-- [ ] error handle
-- [x] cron

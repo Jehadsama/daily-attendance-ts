@@ -2,7 +2,7 @@ const moment = require('moment');
 const schedule = require('node-schedule');
 
 const { cron } = require('../config').const;
-const { run } = require('./src/service/job');
+const { run } = require('../service/job');console.log(cron)
 
 const healthcheck = async () => 'daily_attendance,schedule,ok';
 
@@ -29,7 +29,7 @@ const ticktock = (rule, handler) => {
 
 const running = async () => {
   [healthcheck].forEach((fn) => ticktock(cron.healthCheck, fn));
-  [run].forEach((fn) => ticktock(cron.job, fn));
+  [run].forEach((fn) => ticktock(cron.jobs, fn));
 };
 
 if (require.main === module) {

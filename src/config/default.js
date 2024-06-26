@@ -16,7 +16,6 @@ exports.remote = {
     checkIn: '/growth_api/v1/check_in',
     getLotteryConfig: '/growth_api/v1/lottery_config/get',
     drawLottery: '/growth_api/v1/lottery/draw',
-    getLuckyUserList: '/growth_api/v1/lottery_history/global_big',
   },
   smtp: {
     host: 'smtp.qq.com',

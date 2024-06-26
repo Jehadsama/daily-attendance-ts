@@ -1,7 +1,7 @@
 FROM node:20.15-slim as npminstall
 LABEL maintainer="Jehadsama<339364351@qq.com>"
-ARG nodejs_org_mirror=http://registry.npm.taobao.org/mirrors/node
-ARG npm_config_registry=https://registry.npm.taobao.org
+ARG nodejs_org_mirror=https://registry.npmmirror.com/node
+ARG npm_config_registry=https://registry.npmmirror.com
 ENV NODEJS_ORG_MIRROR=${nodejs_org_mirror} NPM_CONFIG_REGISTRY=${npm_config_registry}
 WORKDIR /tmp/app
 # 拷贝 package.json 到工作跟目录下

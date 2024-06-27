@@ -1,5 +1,6 @@
 exports.const = {
   cron: {
-    jobs: '* 1 * * *',
+    healthCheck: '30 * * * * *',
+    jobs: '0 1 * * *',
   },
 };
